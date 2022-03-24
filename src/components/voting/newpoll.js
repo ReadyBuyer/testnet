@@ -24,7 +24,7 @@ export default function NewPoll() {
                         htmlFor="company-website"
                         className="block text-sm font-medium text-gray-700"
                       >
-                        Website
+                        Candidate Name
                       </label>
                       <div className="mt-1 flex rounded-md shadow-sm">
                         <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
