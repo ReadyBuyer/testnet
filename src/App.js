@@ -24,38 +24,12 @@ export default function App() {
     }
   }, []);
 
-  if (!window.walletConnection.isSignedIn()) {
-    return (
-      <Layout>
-        <h1>Welcome to ReadyBuyer</h1>
-
-        <p style={{ textAlign: "center", marginTop: "2.5em" }}>
-          <button
-            className="block w-full px-5 py-3  font-medium text-indigo-600 bg-blue-50 hover:bg-gray-100"
-            onClick={login}
-          >
-            Sign in
-          </button>
-        </p>
-        <ProductList />
-      </Layout>
-    );
-  }
-
   return (
     // use React Fragment, <>, to avoid wrapping elements in unnecessary divs
 
     <Layout>
-      <button
-        className="block w-full px-5 py-3  font-medium text-indigo-600 bg-blue-50 hover:bg-gray-100"
-        style={{ float: "right" }}
-        onClick={logout}
-      >
-        Sign out
-      </button>
-      <>
-        <ProductList />
-      </>
+      <ProductList />
+
       {showNotification && <Notification />}
     </Layout>
   );
