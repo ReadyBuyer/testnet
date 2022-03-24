@@ -13,10 +13,10 @@ export function addUrl(name:string, url:string):void{
   logging.log('added url for ' + name)
 }
 
-export function setStake(name:string, amount:number): void {
+export function setStake(amount:number): void {
   
   BidPrice.set(user, amount);
-  logging.log(user + 'placed a bid of' + amount )
+  logging.log(`${user} placed a bid of ${amount} NEAR` )
 }
 
 export function getUrl(name:string):string {

@@ -173,6 +173,11 @@ const products = [
 ];
 
 export default function ProductList() {
+  const stakefor1NEAR = async () => {
+    await window.contract.setStake({
+      amount: 1,
+    });
+  };
   const currentDate = new Date();
 
   return (
@@ -199,17 +204,18 @@ export default function ProductList() {
                   {currentDate > new Date(product.auction.bidStart) &&
                     currentDate < new Date(product.auction.bidEnd) &&
                     "Auction Live"}
-                  {currentDate > new Date(auction.bidEnd) && "Auction Ended"}
+                  {currentDate > new Date(product.auction.bidEnd) &&
+                    "Auction Ended"}
                   <span>
                     <button className="text-center">Live</button>
                   </span>
                 </p>
-                <a
-                  href="#login bg-blue-500"
+                <button
+                  onClick={() => stakefor1NEAR}
                   className="block w-full px-5 py-3  font-medium text-indigo-600 bg-blue-50 hover:bg-gray-100"
                 >
-                  Place a bid
-                </a>
+                  Stake for 1 NEAR
+                </button>
               </div>
             </a>
           ))}

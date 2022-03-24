@@ -1,6 +1,9 @@
 import "regenerator-runtime/runtime";
 import ProductList from "./components/products/list";
 import Layout from "./components/Layout";
+import "./global.css";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 
 export default function App() {
   // use React Hooks to store stake in component state
@@ -17,7 +20,7 @@ export default function App() {
       // window.contract is set by initContract in index.js
       setShowNotification(true);
       window.contract
-        .getGreeting({ accountId: window.accountId })
+        .getStake({ accountId: window.accountId })
         .then((stakeFromContract) => {
           setStake(stakeFromContract);
         });
@@ -27,11 +30,9 @@ export default function App() {
   return (
     // use React Fragment, <>, to avoid wrapping elements in unnecessary divs
 
-    <Layout>
-      <ProductList />
-
-      {showNotification && <Notification />}
-    </Layout>
+    <Routes>
+      <Route path="/" element={<ProductList />} />
+    </Routes>
   );
 }
 
