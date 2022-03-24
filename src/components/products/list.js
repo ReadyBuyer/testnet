@@ -10,7 +10,12 @@ const products = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
     imageAlt:
       "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
+    auction: {
+      bidStart: "25/03/2022",
+      bidEnd: "27/03/2022",
+    },
   },
+
   {
     id: 2,
     name: "Nomad Tumbler",
@@ -20,6 +25,10 @@ const products = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
     imageAlt:
       "Olive drab green insulated bottle with flared screw lid and flat top.",
+    auction: {
+      bidStart: "25/03/2022",
+      bidEnd: "27/03/2022",
+    },
   },
   {
     id: 3,
@@ -30,6 +39,10 @@ const products = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
     imageAlt:
       "Person using a pen to cross a task off a productivity paper card.",
+    auction: {
+      bidStart: "25/03/2022",
+      bidEnd: "27/03/2022",
+    },
   },
   {
     id: 4,
@@ -40,6 +53,10 @@ const products = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
+    auction: {
+      bidStart: "25/03/2022",
+      bidEnd: "27/03/2022",
+    },
   },
   {
     id: 5,
@@ -50,6 +67,10 @@ const products = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
     imageAlt:
       "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
+    auction: {
+      bidStart: "25/03/2022",
+      bidEnd: "27/03/2022",
+    },
   },
   {
     id: 6,
@@ -60,6 +81,10 @@ const products = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
     imageAlt:
       "Olive drab green insulated bottle with flared screw lid and flat top.",
+    auction: {
+      bidStart: "25/03/2022",
+      bidEnd: "27/03/2022",
+    },
   },
   {
     id: 7,
@@ -70,6 +95,10 @@ const products = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
     imageAlt:
       "Person using a pen to cross a task off a productivity paper card.",
+    auction: {
+      bidStart: "25/03/2022",
+      bidEnd: "27/03/2022",
+    },
   },
   {
     id: 8,
@@ -80,6 +109,10 @@ const products = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
+    auction: {
+      bidStart: "25/03/2022",
+      bidEnd: "27/03/2022",
+    },
   },
   {
     id: 9,
@@ -90,6 +123,10 @@ const products = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
     imageAlt:
       "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
+    auction: {
+      bidStart: "25/03/2022",
+      bidEnd: "27/03/2022",
+    },
   },
   {
     id: 10,
@@ -100,6 +137,10 @@ const products = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
     imageAlt:
       "Olive drab green insulated bottle with flared screw lid and flat top.",
+    auction: {
+      bidStart: "25/03/2022",
+      bidEnd: "27/03/2022",
+    },
   },
   {
     id: 11,
@@ -110,6 +151,10 @@ const products = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
     imageAlt:
       "Person using a pen to cross a task off a productivity paper card.",
+    auction: {
+      bidStart: "25/03/2022",
+      bidEnd: "27/03/2022",
+    },
   },
   {
     id: 12,
@@ -120,10 +165,16 @@ const products = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
+    auction: {
+      bidStart: "25/03/2022",
+      bidEnd: "27/03/2022",
+    },
   },
 ];
 
 export default function ProductList() {
+  const currentDate = new Date();
+
   return (
     <div className="bg-white">
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -143,7 +194,12 @@ export default function ProductList() {
                   <h2>Current Bid</h2>
                 </span>
                 <p className="mt-1 text-lg font-medium text-gray-900">
-                  <span>{product.price}</span>
+                  {currentDate < new Date(product.auction.bidStart) &&
+                    "Auction Not Started"}
+                  {currentDate > new Date(product.auction.bidStart) &&
+                    currentDate < new Date(product.auction.bidEnd) &&
+                    "Auction Live"}
+                  {currentDate > new Date(auction.bidEnd) && "Auction Ended"}
                   <span>
                     <button className="text-center">Live</button>
                   </span>

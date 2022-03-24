@@ -18,7 +18,7 @@ const DEFAULT_STAKE = 1;
 
 // Exported functions will be part of the public interface for your smart contract.
 // Feel free to extract behavior to non-exported functions!
-export function getStake(accountId: string): number | null {
+export function getStake(accountId: string): number {
   // This uses raw `storage.get`, a low-level way to interact with on-chain
   // storage for simple contracts.
   // If you have something more complex, check out persistent collections:
